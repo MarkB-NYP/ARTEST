@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <meta aframe-injected="" name="mobile-web-app-capable" content="yes">
+    <meta aframe-injected="" name="theme-color" content="black">
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script>
+
+      
+      <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+      <link href="./loading.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+      
+      
+      
+    <a-scene id='ARScene' mindar-image="imageTargetSrc: ./assets/targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" inspector="" keyboard-shortcuts="" screenshot="">
+      <a-camera position="0 0 0" look-controls="enabled: false" camera="" rotation="" wasd-controls="" renderer="antialias: true;colorManagement: true;physicallyCorrectLights"></a-camera>
+        
+        
+        <a-entity light="type: ambient; color: #FFF; intensity: 2.5"></a-entity>
+             <a-assets>
+        <a-asset-item id="cube" src="./assets/cube.gltf"></a-asset-item>
+        <a-asset-item id="characters" src="./assets/characters.gltf"></a-asset-item>
+      </a-assets>
+        
+             <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.5 0" scale="0.03 0.03 0.03" src="#cube">
+                 </a-gltf-model>
+            </a-entity>
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-gltf-model rotation="0 0 0 " position="0.5 -0.5 0" scale="0.03 0.03 0.03" src="#characters">
+          </a-gltf-model>
+            </a-entity>
+
+
+        
+
+      <canvas class="a-canvas" data-aframe-canvas="true" data-engine="three.js r137" width="790" height="942"></canvas>
+      <div class="a-loader-title" style="display: none;"></div>
+      <a-entity light="" data-aframe-default-light="" aframe-injected=""></a-entity>
+      <a-entity light="" position="" data-aframe-default-light="" aframe-injected=""></a-entity>
+    </a-scene>
+  
+      <div class=container id=loadingScreen>
+<div class=sliding-background></div><div id=black><span id=loadingText>LOADING...</span></div>
+</div>
+      <script>
+      var loadingScreen = document.getElementById('loadingScreen');
+        var ARScreen = document.getElementById('ARScene');
+          loadingScreen.style.display='block';
+          ARScreen.style.display='none';
+           setTimeout(function(){loadingScreen.style.display='none',ARScreen.style.display='block';},4000);
+      </script>
+      
+  </body>
+</html>
