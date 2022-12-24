@@ -1,0 +1,76 @@
+<html>
+  <head>
+      
+      <title>Toy Mystery Cube</title>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <!--Mark's Loading Screen Stuff-->
+      
+      <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+      <link href="./loading.css" type="text/css" rel="stylesheet">
+  <style>
+      
+      
+      #ARScene{
+          display: block;
+    font-family: "Didact Gothic";
+    text-align: center;
+          margin-top:10vh;
+          font-size:1.5em;
+      }
+#modelviewer{
+      width:100%;
+    height:60vh;
+      
+      }      
+.container {
+    position: relative;
+    z-index: 9999;
+    display: block;
+    margin-top: 100px;
+    overflow: hidden;
+    background-color: white;
+    width: 100%;
+    height: 50%;
+    margin: 0 auto;
+    padding-top: 46vh;
+    font-family: "Didact Gothic";}
+      </style>
+
+    
+    </head>
+    
+    
+    
+    
+    <body>
+ 
+        <div id='ARScene'>   <h1>The Secret of the Chatter Blocks</h1>
+        <h3>Buy Now</h3>
+    <model-viewer id='modelviewer' src="./assets/cube.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1" environment-image="./assets/CityPanorama.jpg" camera-target="-1m 18m -2m" auto-rotate exposure="1.5" skybox-image="./assets/CityPanorama.jpg">
+        
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </div>
+</model-viewer>
+        </div>
+        
+        
+          <div class=container id=loadingScreen>
+<div class=sliding-background></div><div id=black><span id=loadingText>LOADING...</span></div>
+</div>
+      <script>
+      var loadingScreen = document.getElementById('loadingScreen');
+        var ARScreen = document.getElementById('ARScene');
+          loadingScreen.style.display='block';
+          ARScreen.style.display='none';
+           setTimeout(function(){loadingScreen.style.display='none',ARScreen.style.display='block';},4000);
+      </script>
+  
+  </body>
+</html>
